@@ -1,0 +1,15 @@
+import { ApiProperty } from '@nestjs/swagger';
+
+export class SignInDto {
+  @ApiProperty({
+    description: 'The username of the user',
+    example: 'nitish',
+  })
+  username: string;
+
+  @ApiProperty({
+    description: 'The password of the user',
+    example: 'strongpassword',
+  })
+  password: string;
+}
