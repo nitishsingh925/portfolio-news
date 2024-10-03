@@ -30,7 +30,7 @@ export class AuthGuard implements CanActivate {
 
   private getTokenFromRequest(request: Request): string | undefined {
     // Check token from cookie or Authorization header
-    const cookieToken = request.cookies?.access_token;
+    const cookieToken = request.cookies?.accessToken;
     const headerToken = this.extractTokenFromHeader(request);
     // Return the first non-null token
     return cookieToken || headerToken;

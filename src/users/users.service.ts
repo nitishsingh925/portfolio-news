@@ -1,7 +1,7 @@
 // src/users/users.service.ts
 import { Injectable, ConflictException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { FindOneOptions, Repository } from 'typeorm';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { User } from './entities/user.entity';
@@ -102,5 +102,10 @@ export class UsersService {
    */
   async findOneByEmail(email: string): Promise<User | undefined> {
     return this.usersRepository.findOne({ where: { email } });
+  }
+
+  async findOneById(userId: number): Promise<User | undefined> {
+    const options: FindOneOptions<User> = { where: { id: userId } };
+    return this.usersRepository.findOne(options);
   }
 }
