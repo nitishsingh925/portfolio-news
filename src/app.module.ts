@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
+import { IpoModule } from './ipo/ipo.module';
 
 process.loadEnvFile();
 
@@ -22,6 +23,7 @@ process.loadEnvFile();
     }),
     UsersModule,
     AuthModule,
+    IpoModule,
   ],
   controllers: [AppController],
   providers: [AppService],
